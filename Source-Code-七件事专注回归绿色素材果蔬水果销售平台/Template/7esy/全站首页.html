@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="msapplication-TileColor" content="#1A0066"/>
+<meta name="msapplication-TileImage" content="/images/win8_symbol_140x140.png"/>
+<title>{$SiteName/}_首页</title>
+{$MetaKeywords/}
+{$MetaDescription/}
+{ZL:Boot()/}
+<link href="/dist/css/animate.min.css" rel="stylesheet"/>
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+{ZL:GetCSS(2,0)/}
+<script src="/js/scrolltopcontrol.js"></script>
+<link rel="stylesheet" href="/dist/css/swiper.min.css"/>
+<script src="/dist/js/swiper.min.js"></script>
+</head>
+<body>
+<div class="home_nav" id="home_nav">
+<div class="container">
+<nav class="navbar navbar-default">
+<div class="container">
+<!-- Brand and toggle get grouped for better mobile display -->
+<div class="navbar-header">
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="/"><img src="{$CssDir/}images/logo_w.svg" alt="七件事"></a>
+</div>
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<ul class="nav navbar-nav home_top_nav">
+<li ><a href="/">首页</a></li>
+<li id="#nid2"><a href="{ZL:GetNodeLinkUrl(2)/}">生鲜商城</a></li>
+<li id="#gid16"><a href="{ZL:GetNodeLinkUrl(3)/}">关于七件事</a></li>
+<li id="#nid4"><a href="{ZL:GetInfoUrl(18)/}">成为合伙人</a></li>
+<li id="#nid3"><a href="{ZL:GetInfoUrl(15)/}">联系我们</a></li>
+<li class="hidden-xs"><a href="javascript:;" onClick="isSearch();"><i class="fa fa-search"></i></a></li>
+<li class="home_weixin hidden-xs nav_icon"><a href="javascript:;"><i class="fa fa-weixin"></i></a>
+<div class="qrcode"><img src="{$CssDir/}images/QRcode.jpg" alt="微信二维码"></div>
+</li>
+</ul>
+<ul class="nav navbar-nav navbar-right home_search hidden-xs">
+<form class="navbar-form navbar-left" role="search" action="/Search/SearchList" target="_blank">
+<i class="fa fa-search"></i>
+<input type="text" class="form-control" placeholder="输入关键字，回车查询" name="keyword" />
+<a onClick="isClose();"><i class="fa fa-close" style="color:#fff;"></i></a>
+</form>
+</ul>
+</div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
+</nav>
+</div>
+</div>
+<!-- home_nav end! -->
+
+<div class="home_banner">
+<div class="container">
+<div class="banner_t">
+<span>全品类生鲜蔬果</span>
+<p>2小时极速送上门</p>
+<em>开心七件事我们都能搞定！</em>
+</div>
+<div class="animated ad_bg1">
+<img src="{$CssDir/}images/fish_pic1.png" alt="生鲜之鱼">
+</div>
+
+</div>
+</div>
+<!-- home_banner end! -->
+
+<div class="container home_solo">
+<h2>过不将就的生活，从吃好一点开始</h2>
+<h3>400种精选生鲜食材，满足你的一站式购买需求</h3>
+</div>
+
+
+<div class="container swiper-container home_swiper">
+<div class="swiper-wrapper">
+<div class="swiper-slide">
+<a href="{ZL:GetNodeLinkUrl(2)/}"><img src="{$CssDir/}images/home_life_bg1.jpg" alt="优选好货"></a>
+</div>
+<div class="swiper-slide">
+<a href="{ZL:GetNodeLinkUrl(2)/}"><img src="{$CssDir/}images/home_life_bg2.jpg" alt="优选好货"></a>
+</div>
+<div class="swiper-slide">
+<a href="{ZL:GetNodeLinkUrl(2)/}"><img src="{$CssDir/}images/home_life_bg3.jpg" alt="优选好货"></a>
+</div>
+</div>
+<!-- Add Pagination -->
+<div class="swiper-pagination"></div>
+<!-- Add Arrows -->
+<div class="swiper-button-prev"><i class="fa fa-chevron-left"></i></div>
+<div class="swiper-button-next"><i class="fa fa-chevron-right"></i></div>
+</div>
+<!-- home_life_banner end! -->
+
+
+<div class="home_ad container">
+<div class="home_ad1">
+<a href="#"><img src="{$CssDir/}images/home_ad2.png" alt="红包"></a>
+</div>
+<div class="home_ad2">
+<a href="#"><img src="{$CssDir/}images/home_ad1.jpg" alt="好货"></a>
+<div class="ad2_t">
+<p>每日精选好货</p>
+<a href="{ZL:GetNodeLinkUrl(2)/}">查看详情</a>
+</div>
+</div>
+</div>
+<!-- home_ad end! -->
+
+<div class="fruit_box1 container">
+<div class="fruit_lists_tit">
+<h3>
+<p><span><a href="javascript:;">每日特价</a>新鲜蔬果</span></p>
+</h3>
+</div>
+<div class="fruit_lists_c">
+<div class="row">
+{ZL.Label id="首页输出特价鲜果_不分页" NodeID="26" ShowNum="4" TitleNum="30" /}
+</div>
+</div>
+<div class="fruit_fl">
+<div class="fl_list">
+<i class="fa fa-shield"></i>
+<p>食品安全<br><span>精选生鲜 严格质检</span></p>
+</div>
+<div class="fl_list">
+<i class="fa fa-cart-arrow-down"></i>
+<p>全程冷链<br><span>自营物流 安全可控</span></p>
+</div>
+<div class="fl_list">
+<i class="fa fa-leaf"></i>
+<p>鲜活天然<br><span>绿色生态 京东精选</span></p>
+</div>
+<div class="fl_list">
+<i class="fa fa-map-marker"></i>
+<p>产地直采<br><span>限定产源 质量保证</span></p>
+</div>
+<div class="fl_list">
+<i class="fa fa-cny"></i>
+<p>无忧售后<br><span>优鲜赔 售后通道</span></p>
+</div>
+</div>
+</div>
+<!-- fruit_box1 end! -->
+
+<div class="fruit_box2 container">
+<div class="fruit_box2_c">
+<ul>
+<li>
+<a href="#" class="box2_bg1">
+<div class="fruit_hot hot1">
+<img src="{$CssDir/}images/cheap_pic1.png" alt="西红柿">
+<div class="rect_bg rect1"></div>
+</div>
+<div class="goods_info">
+<h4>欧盟有机翠玉酥梨</h4>
+<p>新农人科学培育的有机水果</p>
+<div class="good_txt">
+80后新农人，十年坚持种植，2000亩有机种植果园，获得欧盟的有机认证种植，2000亩有机种植果园，获得欧盟的有机认证。
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="#"  class="box2_bg2">
+<div class="fruit_hot hot2">
+<img src="{$CssDir/}images/cheap_pic2.png" alt="有机水果">
+<div class="rect_bg rect2"></div>
+</div>
+<div class="goods_info">
+<h4>欧盟有机翠玉酥梨</h4>
+<p>新农人科学培育的有机水果</p>
+<div class="good_txt">
+80后新农人，十年坚持种植，2000亩有机种植果园，获得欧盟的有机认证种植，2000亩有机种植果园，获得欧盟的有机认证。
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="#"  class="box2_bg3">
+<div class="fruit_hot hot3">
+<img src="{$CssDir/}images/cheap_pic1.png" alt="西红柿">
+<div class="rect_bg"></div>
+</div>
+<div class="goods_info rect3">
+<h4>欧盟有机翠玉酥梨</h4>
+<p>新农人科学培育的有机水果</p>
+<div class="good_txt">
+80后新农人，十年坚持种植，2000亩有机种植果园，获得欧盟的有机认证种植，2000亩有机种植果园，获得欧盟的有机认证。
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="#"  class="box2_bg4">
+<div class="fruit_hot hot4">
+<img src="{$CssDir/}images/cheap_pic2.png" alt="有机水果">
+<div class="rect_bg rect4"></div>
+</div>
+<div class="goods_info">
+<h4>欧盟有机翠玉酥梨</h4>
+<p>新农人科学培育的有机水果</p>
+<div class="good_txt">
+80后新农人，十年坚持种植，2000亩有机种植果园，获得欧盟的有机认证种植，2000亩有机种植果园，获得欧盟的有机认证。
+</div>
+</div>
+</a>
+</li>
+<div class="clearfix"></div>
+</ul>
+<div class="box2_lbg hidden-xs"></div>
+<div class="box2_rbg hidden-xs"></div>
+<div class="fruit_tbg">
+<span></span>
+<p>9月1日-10月8日</p>
+</div>
+</div>
+</div>
+<!-- fruit_box2 end! -->
+
+<div class="fruit_box3 container">
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
+<div class="carousel-inner" role="listbox">
+<div class="item active">
+<div class="img_c">
+{ZL.Label id="首页输出新品鲜果_不分页" NodeID="35" ShowNum="5" TitleNum="20" /}
+
+<div class="clearfix"></div>
+</div>
+</div>
+<div class="item">
+<div class="img_c">
+{ZL.Label id="首页输出新品鲜果_不分页" NodeID="36" ShowNum="5" TitleNum="20" /}
+<div class="clearfix"></div>
+</div>
+</div>
+</div>
+<!-- Controls -->
+<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+<span class="sr-only">Previous</span>
+</a>
+<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+<span class="sr-only">Next</span>
+</a>
+</div>
+
+<div class="more_btn"><a href="{ZL:GetNodeLinkUrl(2)/}">更多优选</a></div>
+</div>
+<!-- fruit_box3 end! -->
+
+<div class="foot_bottom">
+<div class="container">
+<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+<ul>
+<strong>帮助中心</strong>
+<li><a href="{ZL:GetInfoUrl(19)/}">使用帮助</a></li>
+<li><a href="{ZL:GetInfoUrl(20)/}">积分奖励规则</a></li>
+<li><a href="{ZL:GetInfoUrl(21)/}">如何注册成为会员</a></li>
+</ul>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+<ul>
+<strong>售后服务</strong>
+<li><a href="{ZL:GetInfoUrl(22)/}">退换货政策</a></li>
+<li><a href="{ZL:GetInfoUrl(23)/}">联系卖家</a></li>
+</ul>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+<ul>
+<strong>配送与支付</strong>
+<li><a href="{ZL:GetInfoUrl(24)/}">货到付款区域 </a></li>
+<li><a href="{ZL:GetInfoUrl(25)/}">配送时间及费用 </a></li>
+<li><a href="{ZL:GetInfoUrl(26)/}">支付问题</a></li>
+<li><a href="{ZL:GetInfoUrl(27)/}">在线支付</a></li>
+</ul>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+<ul>
+<strong>关于我们 </strong>
+<li><a href="{ZL:GetInfoUrl(16)/}">关于我们</a></li>
+<li><a href="{ZL:GetInfoUrl(15)/}">联系我们</a></li>
+<li><a href="{ZL:GetInfoUrl(17)/}">人才招聘</a></li>
+<li><a href="{ZL:GetInfoUrl(18)/}">合作加盟</a></li>
+<li><a href="{ZL:GetNodeLinkUrl(2)/}">商城中心 </a></li>
+</ul>
+</div>
+</div>
+<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 foot_bottom_r">
+<img src="{$CssDir/}images/QRcode.jpg" class="img-responsive center-block" alt="微信公众号" />
+</div>
+<div class="clearfix"></div>
+<div class="foot_link">
+<div class="row">
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="btn-group dropup">
+<button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false">美食栏目友情链接<i class="caret"></i></button>
+<ul class="dropdown-menu" role="menu">
+{ZL.Label id="输出指定节点友情链接下拉选项" NodeID="10" /}
+</ul>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="btn-group dropup">
+<button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false">合作商家友情链接<i class="caret"></i></button>
+<ul class="dropdown-menu" role="menu">
+{ZL.Label id="输出指定节点友情链接下拉选项" NodeID="11" /}</ul>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="btn-group dropup">
+<button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false">常用网址友情链接 <i class="caret"></i></button>
+<ul class="dropdown-menu" role="menu">
+{ZL.Label id="输出指定节点友情链接下拉选项" NodeID="7" /}</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="foot_copyright">{$Copyright/}</div>
+</div>
+</div>
+</body>
+</html>
+
+
+<script>
+//检测固顶事件
+var IO=document.getElementById('home_nav'),Y=IO,H=0,IE6;
+IE6=window.ActiveXObject&&!window.XMLHttpRequest;
+while(Y){H+=Y.offsetTop;Y=Y.offsetParent};
+if(IE6)
+    IO.style.cssText="position:absolute;top:expression(this.fix?(document"+
+        ".documentElement.scrollTop-(this.javascript||"+H+")):0)";
+window.onscroll=function (){
+    var d=document,s=Math.max(d.documentElement.scrollTop,document.body.scrollTop);
+     if(s>H&&IO.fix||s<=H&&!IO.fix)return;
+    if(!IE6)IO.style.position=IO.fix?"":"fixed";        
+    IO.fix=!IO.fix;
+};
+try{document.execCommand("BackgroundImageCache",false,true)}catch(e){};
+
+
+
+//手机下右侧导航菜单效果
+$(function () {
+    $('button.navbar-toggle').click(function () {
+        $('body').toggleClass('out');
+        $('nav.navbar-fixed-top').toggleClass('out');
+        if ($('body').hasClass('out')) {
+            $(this).focus();
+        }
+        else {
+            $(this).blur();
+        }
+    });
+});
+$(document).click(function (e) {
+    if (!$(e.target).closest('.navbar-collapse, button.navbar-toggle').length && $('body').hasClass('out')) {
+        e.preventDefault();
+        $('button.navbar-toggle').trigger('click');
+    }
+}).keyup(function (e) {
+    if (e.keyCode == 27 && $('body').hasClass('out')) {
+        $('button.navbar-toggle').trigger('click');
+    }
+});
+
+
+$(window).scroll(function(){
+	if($(window).scrollTop()>0){
+		$(".home_nav").addClass("active")
+	}
+	else{
+		$(".home_nav").removeClass("active");
+	}
+});
+
+//微信二维码
+$(".home_weixin img").hide();
+$(".home_weixin a").mouseover(function(){
+    $(".home_weixin img").show();
+}).mouseout(function(){
+    $(".home_weixin img").hide();
+});
+
+/*显示搜索框*/
+function isSearch(){
+    $(".home_search").css("opacity","1").css("z-index","1").css("right","0");
+    $(".home_top_nav").fadeOut(200);
+    $(".home_search .form-control").focus();
+}
+/*关闭搜索框*/
+function isClose(){
+    $(".home_search").css("opacity","0").css("z-index","-1").css("right","-1em");
+    $(".home_top_nav").fadeIn(1000);
+}
+
+
+var swiper = new Swiper('.home_swiper', {
+    pagination: '.swiper-pagination',
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    slidesPerView: 1,
+    paginationClickable: true,
+    spaceBetween: 30,
+    keyboardControl: true,
+    loop: true,
+    autoplay:3500
+});
+
+//微信弹出菜单效果
+$(function(){
+	//menu float
+	var menufloatclicknumber=0;
+	function menufloatin(){
+		$(".menu-c").removeClass("out");
+		$("#menufloat").addClass("show")
+		$(".mask_menu").fadeIn();
+		$("#menufloat-c").show();
+		$(".menu-c-inner").removeClass("outer");
+		$(".menu-c-inner").addClass("in")
+		$(".menu-c-inner a").show();
+		menufloatclicknumber=1;
+	}
+	function menufloatout(){
+		$("#menufloat").removeClass("show")
+		$(".mask_menu").fadeOut();
+		$(".menu-c-inner").removeClass("in")
+		$(".menu-c-inner").addClass("outer")
+		$(".menu-c-inner a").hide();
+		$(".menu-c").addClass("out");
+		menufloatclicknumber=0;		
+	}
+	$("#menufloat").click(function(){
+		if(menufloatclicknumber==0){ menufloatin(); }
+		else { menufloatout();}			 	
+	})
+	$(".mask_menu").click(function(){
+		menufloatout(); 
+	})
+});
+</script>

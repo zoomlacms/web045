@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>348</LabelID>
+    <LabelName>输出商城食品分类</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>七件事</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,0,1,节点ID</LabelParam>
+    <LabelTable>ZL_Node</LabelTable>
+    <LabelField>NodeName,NodeID</LabelField>
+    <LabelWhere>ParentID in (select NodeID from ZL_Node where ParentID=@NodeID)</LabelWhere>
+    <LabelOrder />
+    <LabelContent>{Repeate}
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl({Field="NodeID"/})/}"&gt;{Field="NodeName"/}&lt;/a&gt;&lt;/li&gt;
+{/Repeate}</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_Node","tb_s":""}</DataSourceType>
+    <ConnectString />
+  </Table>
+</NewDataSet>

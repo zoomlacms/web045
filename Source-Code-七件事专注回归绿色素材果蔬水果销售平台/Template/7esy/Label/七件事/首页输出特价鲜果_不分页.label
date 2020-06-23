@@ -1,0 +1,46 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>335</LabelID>
+    <LabelName>首页输出特价鲜果_不分页</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>七件事</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,0,1,节点ID|ShowNum,4,1,显示数|TitleNum,30,1,标题长度</LabelParam>
+    <LabelTable>ZL_Commodities</LabelTable>
+    <LabelField>LinPrice,Proname,Thumbnails,Proinfo,ID,NodeID,ShiPrice,Ishot	</LabelField>
+    <LabelWhere>(NodeID=@NodeID or NodeID in (select NodeID from zl_Node where ParentID=@NodeID) or NodeID in (select NodeID from ZL_Node where ParentID in (select NodeID from zl_Node where ParentID=@NodeID))) And Sales=1 And istrue=1 And Recycler=0  and ishot=1 </LabelWhere>
+    <LabelOrder>AddTime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"&gt;
+&lt;div class="fruit_lists_col"&gt;
+&lt;div class="fruit_img"&gt;
+&lt;a href="{ZL:GetShopUrl({Field="ID"/})/}"&gt;&lt;img src="{ZL:GetPicUrl({Field="Thumbnails"/})/}"  alt="{Field="Proname"/}" onerror="javascript:this.src='/UploadFiles/nopic.gif'"/&gt;&lt;/a&gt;
+&lt;div class="fruit_black"&gt;
+&lt;p&gt;{ZL:CutText({Field="Proname"/},@TitleNum,...)/}&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="fruit_p"&gt;
+&lt;p&gt;&lt;span&gt;5&lt;/span&gt;折起 七件事有机天然新鲜蔬果&lt;/p&gt;
+&lt;strong&gt;&lt;i class=" fa fa-clock-o"&gt;&lt;/i&gt;剩余2天&lt;/strong&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+{/Repeate}
+</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_Commodities","tb_s":""}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

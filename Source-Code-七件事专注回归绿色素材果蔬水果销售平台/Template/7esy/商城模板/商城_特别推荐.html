@@ -1,0 +1,277 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<link rel="stylesheet" href="/dist/css/weui.min.css" />
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js" type="text/javascript"></script>
+<script src="/JS/Controls/B_User.js"></script>
+<style>
+@media screen and (max-width:768px) {
+body{background:#e0e0e0;}
+.shop_top,.shop_nav,.mySites,.shop_brand_menu,.shop_brand_code,.shop_brand_browse{display:none;}
+.weiHot{ margin-top:1em;}
+.weiHot li{ display:block; margin-top:1em; background:#fff; border-radius:10px;}
+.weiHot li .media-left a { display:block; width:5em;}
+.weiHot li .media-left a img { width:100%;}
+.weiHot li .media-body p { margin-bottom:0;}
+.weiHot li .media-body h4 { font-size:1em;}
+.weiHot li .media-body h4 a { color:#333; text-decoration:none;}
+.weiHot li .media-body>a { margin-bottom:0.5em;}
+}
+</style>
+</head> 
+<body>
+{ZL.Label id="全站头部"/}
+
+<div class="weui-search-bar visible-xs" id="searchBar">
+<form action="/Search/SearchList" class="weui-search-bar__form">
+<div class="weui-search-bar__box">
+<i class="weui-icon-search"></i>
+<input type="search" class="weui-search-bar__input" id="searchInput" name="keyword" placeholder="全站检索">
+<a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+</div>
+<label class="weui-search-bar__label" id="searchText" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">
+<i class="weui-icon-search"></i>
+<span>全站检索</span>
+</label>
+</form>
+<a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+</div>
+
+<div class="container weiHot">
+<ul class="media-list">
+{ZL.Label id="输出热卖推荐商品" NodeID="{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}" ShowNum="5" TitleNum="50" /}
+</ul>
+</div>
+
+
+
+
+
+<div class="container mySites" style="margin-top:0;">
+<ul class="breadcrumb">
+<li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+{ZL.Label id="输出多级节点导航_V4" NodeID="{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}" ShowNum="30" /}
+</ul>
+</div>
+<!-- mySites end! -->
+
+<div class="container shop_brand_box">
+<div class="row">
+<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 paddingr0">
+<div class="shop_brand_menu">
+<div class="title">
+<h3>分类筛选</h3>
+</div>
+<div class="main_menu_c">
+{ZL.Label id="输出一级菜单" ParentID="2" ShowNum="10" /}
+
+</div>
+</div>
+
+<div class="shop_brand_code">
+<img src="{$CssDir/}images/QRcode.jpg" alt="七件事">
+</div>
+
+
+</div>
+<!-- shop_brand_menu end! -->
+
+<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 mt10">
+<div class="selling_hot "  style="background:#fff;">
+<div class="title">
+<h3>热销推荐</h3>
+</div>
+<div class="selling_c">
+<ul>
+{ZL.Label id="热销推荐商品_不分页" NodeID="{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}" ShowNum="4" /}
+</ul>
+</div>
+</div>
+<!-- selling_hot end! -->
+
+
+</div>
+</div>
+</div>
+<div style="height:5em;"></div>
+{ZL.Label id="微信底部"/}
+</body>
+</html>
+<script>
+//会员ajax登录状态需要结合JS/Controls/B_User.js引用同步生效
+var buser = new B_User();
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data)
+		$(".user_login").hide();
+		$(".user_reg").hide();
+		$(".user_cen").html("欢迎您,"+data.UserName+"!").css("color","red");
+		$(".user_cen").show();
+		$(".user_logout").show();
+	}
+});
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+};
+
+//生鲜商城导航
+var width=$(".category").width();
+$(".all_title a").css("width",width);
+$(".sub-class-box").css({left:width+14});  
+$(".sub-class-box").hide();
+$(".menu_left").mouseover( function(){
+    var index=$(this).index();
+    $(".sub-class-box").hide().eq(index).stop().show();
+});
+$(".sub-class-box").mouseleave(function(){
+    $(".sub-class-box").hide();
+ });
+$(".commodity").mouseleave(function(){
+    $(".sub-class-box").hide();
+ });
+ 
+ window.onresize = function () {
+     var width=$(".category").width();
+    $(".all_title a").css("width",width);
+    $(".sub-class-box").css({left:width+14});  
+  }
+  
+$(".category").hide();
+$(".all_title").mouseover(function(){
+    $(".category").show();  
+});
+$(".commodity").mouseleave(function(){
+    $(".category").hide();
+ });
+
+//分类筛选菜单
+
+$(".main_menu_s").hide();
+$(".main_menu_t").hide();
+$(".main_menu_c li i").click(function(){
+if($(this).hasClass("fa fa-minus-square-o"))
+    {
+    $(this).removeClass(" fa fa-minus-square-o").addClass("fa fa-plus-square-o");
+    $(this).parent("li").children("ul").hide();
+    }
+else{
+    $(this).removeClass("fa fa-plus-square-o").addClass(" fa fa-minus-square-o");	
+     $(this).parent("li").children("ul").show();
+    
+    } 
+ });
+ 
+ //手机下右侧导航菜单效果
+$(function () {
+    $('button.navbar-toggle').click(function () {
+        $('body').toggleClass('out');
+        $('nav.navbar-fixed-top').toggleClass('out');
+        if ($('body').hasClass('out')) {
+            $(this).focus();
+        }
+        else {
+            $(this).blur();
+        }
+    });
+});
+$(document).click(function (e) {
+    if (!$(e.target).closest('.navbar-collapse, button.navbar-toggle').length && $('body').hasClass('out')) {
+        e.preventDefault();
+        $('button.navbar-toggle').trigger('click');
+    }
+}).keyup(function (e) {
+    if (e.keyCode == 27 && $('body').hasClass('out')) {
+        $('button.navbar-toggle').trigger('click');
+    }
+});
+$(function(){
+	var $searchBar = $('#searchBar'),
+		$searchText = $('#searchText'),
+		$searchInput = $('#searchInput'),
+		$searchClear = $('#searchClear'),
+		$searchCancel = $('#searchCancel');
+
+	function hideSearchResult(){
+		$searchInput.val('');
+	}
+	function cancelSearch(){
+		hideSearchResult();
+		$searchBar.removeClass('weui-search-bar_focusing');
+		$searchText.show();
+	}
+
+	$searchText.on('click', function(){
+		$searchBar.addClass('weui-search-bar_focusing');
+		$searchInput.focus();
+	});
+	$searchInput
+		.on('blur', function () {
+			if(!this.value.length) cancelSearch();
+		})
+	;
+	$searchClear.on('click', function(){
+		hideSearchResult();
+		$searchInput.focus();
+	});
+	$searchCancel.on('click', function(){
+		cancelSearch();
+		$searchInput.blur();
+	});
+});
+
+//检测固顶事件
+var IO=document.getElementById('home_nav'),Y=IO,H=0,IE6;
+IE6=window.ActiveXObject&&!window.XMLHttpRequest;
+while(Y){H+=Y.offsetTop;Y=Y.offsetParent};
+if(IE6)
+    IO.style.cssText="position:absolute;top:expression(this.fix?(document"+
+        ".documentElement.scrollTop-(this.javascript||"+H+")):0)";
+window.onscroll=function (){
+    var d=document,s=Math.max(d.documentElement.scrollTop,document.body.scrollTop);
+     if(s>H&&IO.fix||s<=H&&!IO.fix)return;
+    if(!IE6)IO.style.position=IO.fix?"":"fixed";        
+    IO.fix=!IO.fix;
+};
+try{document.execCommand("BackgroundImageCache",false,true)}catch(e){};
+ 
+//微信四叶章弹出菜单效果
+$(function(){
+	//menu float
+	var menufloatclicknumber=0;
+	function menufloatin(){
+		$(".menu-c").removeClass("out");
+		$("#menufloat").addClass("show")
+		$(".mask_menu").fadeIn();
+		$("#menufloat-c").show();
+		$(".menu-c-inner").removeClass("outer");
+		$(".menu-c-inner").addClass("in")
+		$(".menu-c-inner a").show();
+		menufloatclicknumber=1;
+	}
+	function menufloatout(){
+		$("#menufloat").removeClass("show")
+		$(".mask_menu").fadeOut();
+		$(".menu-c-inner").removeClass("in")
+		$(".menu-c-inner").addClass("outer")
+		$(".menu-c-inner a").hide();
+		$(".menu-c").addClass("out");
+		menufloatclicknumber=0;		
+	}
+	$("#menufloat").click(function(){
+		if(menufloatclicknumber==0){ menufloatin(); }
+		else { menufloatout();}			 	
+	})
+	$(".mask_menu").click(function(){
+		menufloatout(); 
+	})
+});
+$("#foot_jie").addClass("weui-bar__item_on");
+</script>

@@ -1,0 +1,43 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>330</LabelID>
+    <LabelName>首页输出新品上架_图文不分页</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>七件事</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,0,1,节点ID|ShowNum,12,1,显示数|Title,,1,商品名</LabelParam>
+    <LabelTable>ZL_Commodities</LabelTable>
+    <LabelField>Isnew,LinPrice,Proname,Thumbnails,Proinfo,ID,NodeID,ShiPrice</LabelField>
+    <LabelWhere>(NodeID=@NodeID or ParentID=@NodeID)  And Sales=1 And istrue=1 And Recycler=0   AND Isnew=1</LabelWhere>
+    <LabelOrder>AddTime DESC</LabelOrder>
+    <LabelContent>
+{Repeate}
+&lt;li class="goods_list"&gt;
+  
+&lt;a href="{ZL:GetShopUrl({Field="ID"/})/}"&gt;
+&lt;div class="sale_img_box"&gt;&lt;img src="{ZL:GetPicUrl({Field="Thumbnails"/})/}"  alt="{Field="Proname"/}" onerror="javascript:this.src='/UploadFiles/nopic.gif'"/&gt;&lt;/div&gt;
+&lt;div class="goods_name"&gt;{Field="Proname"/}&lt;/div&gt;
+&lt;div class="goods_price"&gt;商城价: &lt;span&gt;¥{ZL:GetMoney({Field="LinPrice"/},2,1)/}&lt;/span&gt;&lt;/div&gt;
+&lt;/a&gt;
+&lt;/li&gt;
+{/Repeate}
+
+
+</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_Commodities","tb_s":""}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

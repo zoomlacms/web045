@@ -1,0 +1,217 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>商品分类_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/JS/Controls/B_User.js"></script>
+<link rel="stylesheet" href="/dist/css/weui.min.css" />
+<link rel="stylesheet" href="/dist/css/swiper.min.css" />
+<script src="/dist/js/swiper.min.js"></script>
+<style>
+body { background:#f3f3f3;}
+.wei-footer { position:fixed; bottom:0;}
+</style>
+</head>
+<body>
+{ZL.Label id="全站头部"/}
+<div class="weui-search-bar visible-xs" id="searchBar">
+<form action="/Search/SearchList" class="weui-search-bar__form">
+<div class="weui-search-bar__box">
+<i class="weui-icon-search"></i>
+<input type="search" class="weui-search-bar__input" id="searchInput" name="keyword" placeholder="请输入内容标题">
+<a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+</div>
+<label class="weui-search-bar__label" id="searchText" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">
+<i class="weui-icon-search"></i>
+<span>全站检索</span>
+</label>
+</form>
+<a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+</div>
+<div class="container padding0_xs">
+<div class="type_l">
+<ul>
+<li class="active"><a href="{ZL:GetNodeListUrl(76)/}">热门推荐</a></li>
+{ZL.Label id="输出商城食品分类" NodeID="2" /}
+</ul>
+</div>
+<div class="type_r">
+<div class="type_r_ad hidden"><a href="#"><img src="{$CssDir/}images/type_ad.jpg" alt="{$SiteName/}"/></a></div>
+<div class="type_r_tit">新鲜蔬菜</div>
+<ul>
+{ZL.Label id="获取子节点列表" NodeID="25" /}
+<div class="clearfix"></div>
+</ul>
+<div class="type_r_tit">新鲜水果</div>
+<ul>
+{ZL.Label id="获取子节点列表" NodeID="26" /}
+<div class="clearfix"></div>
+</ul>
+<div class="type_r_tit">肉禽蛋骨</div>
+<ul>
+{ZL.Label id="获取子节点列表" NodeID="27" /}
+<div class="clearfix"></div>
+</ul>
+<div class="type_r_tit">水产冰鲜</div>
+<ul>
+{ZL.Label id="获取子节点列表" NodeID="28" /}
+<div class="clearfix"></div>
+</ul>
+<div class="type_r_tit">粮油副食</div>
+<ul>
+{ZL.Label id="获取子节点列表" NodeID="29" /}
+<div class="clearfix"></div>
+</ul>
+<div class="type_r_tit">食品饮品</div>
+<ul>
+{ZL.Label id="获取子节点列表" NodeID="30" /}
+<div class="clearfix"></div>
+</ul>
+<div class="type_r_tit">原生态</div>
+<ul>
+{ZL.Label id="获取子节点列表" NodeID="59" /}
+<div class="clearfix"></div>
+</ul>
+<div class="type_r_tit">日常家居</div>
+<ul>
+{ZL.Label id="获取子节点列表" NodeID="60" /}
+<div class="clearfix"></div>
+</ul>
+</div>
+</div>
+
+<div class="hidden-xs">{ZL.Label id="全站底部"/}</div>
+<div class="visible-xs">
+{ZL.Label id="微信底部"/}
+</div>
+</body>
+</html>
+<script>
+//会员ajax登录状态需要结合JS/Controls/B_User.js引用同步生效
+var buser = new B_User();
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data)
+		//console.log(data);
+		$(".user_login").hide();
+		$(".user_reg").hide();
+		$(".user_cen").html("欢迎您,"+data.UserName+"!");
+		$(".user_cen").show();
+		$(".user_logout").show();
+        $(".home_t>a").html("<i class='fa fa-user'></i>");
+	}
+});
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+};
+
+$().ready(function(e) {
+    $("#wei-type").addClass("weui-bar__item_on");
+    $("#nid{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}").addClass("active");
+    if("{$GetUrldecode({$GetRequest(keyword)$})$}"!="" && "{$GetUrldecode({$GetRequest(keyword)$})$}"!=null){
+        $('#searchBar').addClass('weui-search-bar_focusing');
+        $('#searchInput').val("{$GetUrldecode({$GetRequest(keyword)$})$}");
+    }
+});
+//手机下右侧导航菜单效果
+$(function () {
+    $('button.navbar-toggle').click(function () {
+        $('body').toggleClass('out');
+        $('nav.navbar-fixed-top').toggleClass('out');
+        if ($('body').hasClass('out')) {
+            $(this).focus();
+        }
+        else {
+            $(this).blur();
+        }
+    });
+});
+$(document).click(function (e) {
+    if (!$(e.target).closest('.navbar-collapse, button.navbar-toggle').length && $('body').hasClass('out')) {
+        e.preventDefault();
+        $('button.navbar-toggle').trigger('click');
+    }
+}).keyup(function (e) {
+    if (e.keyCode == 27 && $('body').hasClass('out')) {
+        $('button.navbar-toggle').trigger('click');
+    }
+});
+//微信弹出菜单效果
+$(function(){
+	//menu float
+	var menufloatclicknumber=0;
+	function menufloatin(){
+		$(".menu-c").removeClass("out");
+		$("#menufloat").addClass("show")
+		$(".mask_menu").fadeIn();
+		$("#menufloat-c").show();
+		$(".menu-c-inner").removeClass("outer");
+		$(".menu-c-inner").addClass("in")
+		$(".menu-c-inner a").show();
+		menufloatclicknumber=1;
+	}
+	function menufloatout(){
+		$("#menufloat").removeClass("show")
+		$(".mask_menu").fadeOut();
+		$(".menu-c-inner").removeClass("in")
+		$(".menu-c-inner").addClass("outer")
+		$(".menu-c-inner a").hide();
+		$(".menu-c").addClass("out");
+		menufloatclicknumber=0;		
+	}
+	$("#menufloat").click(function(){
+		if(menufloatclicknumber==0){ menufloatin(); }
+		else { menufloatout();}			 	
+	})
+	$(".mask_menu").click(function(){
+		menufloatout(); 
+	})
+});
+
+$(".type_l li a").click(function(){
+    $(this).parent("li").addClass("active");
+    $(this).parent("li").siblings("li").removeClass("active");
+});
+
+/*微信搜索框效果*/
+$(function(){
+	var $searchBar = $('#searchBar'),$searchText = $('#searchText'),$searchInput = 
+
+$('#searchInput'),$searchClear = $('#searchClear'),$searchCancel = $('#searchCancel');
+	function hideSearchResult(){
+		$searchInput.val('');
+	}
+	function cancelSearch(){
+		$searchBar.removeClass('weui-search-bar_focusing');
+		$searchText.show();
+	}
+
+	$searchText.on('click', function(){
+		$searchBar.addClass('weui-search-bar_focusing');
+		$searchInput.focus();
+	});
+	$searchInput
+		.on('blur', function () {
+			if(!this.value.length) cancelSearch();
+		});
+	;
+	$searchClear.on('click', function(){
+		hideSearchResult();
+		$searchInput.focus();
+	});
+	$searchCancel.on('click', function(){
+		cancelSearch();
+		$searchInput.blur();
+	});
+});
+
+$("#foot_quan").addClass("weui-bar__item_on");
+</script>

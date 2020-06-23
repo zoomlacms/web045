@@ -1,0 +1,919 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js" type="text/javascript"></script>
+<script src="/JS/Controls/B_User.js"></script>
+<link rel="stylesheet" href="/dist/css/swiper.min.css">
+<script src="/dist/js/swiper.min.js"></script>
+</head> 
+<body>
+<div class="shop_top">
+<div class="container">
+<div class="row">
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><p>欢迎来到七件事生活网！</p></div>
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+<p class="text-right">
+<a href="/User/Login?ReturnUrl=/Class_2/Default.aspx" class="user_login">登录</a>
+<a href="/User/Register" class="user_reg">注册</a>
+<a href="/User" class="user_cen"></a>
+<a href="javascript:;" onClick="LogoutFun();"  class="user_logout">退出</a>
+<a href="/User/Order/OrderList" style="padding-left:0;">我的订单</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+<!-- shop_top end! -->
+
+<div class="shop_nav">
+<div class="container">
+<a href="/"><img src="{$LogoUrl/}" alt="{$SiteName/}"></a>
+<span><img src="{$CssDir/}images/shop_top_nav.gif" alt="标志"></span>
+<div class="home_cart pull-right">
+<div class="home_cart_t"><a href="/Cart/Cart.aspx?ProClass=1"><i class="fa fa-shopping-cart"></i> 我的购物车</a></div>
+<div class="home_cart_c"></div>
+</div>
+<form class="navbar-form navbar-right" role="search" method="get" action="/Search/SearchList" target="_blank">
+<div class="input-group">
+<input type="text" class="form-control" name="keyword" placeholder="请输入您想要搜索的商品关键字">
+<span class="input-group-btn">
+<button type="submit" class="btn btn-default">搜索</button>
+</span>
+</div><!-- /input-group -->
+</form>
+<nav>
+<ul>
+<li class="all_title"><a href="#"><i class="fa fa-bars "></i>全部商品分类</a></li>
+<li><a href="/">首页</a></li>
+<li><a href="{ZL:GetNodeLinkUrl(231)/}">品牌</a></li>
+<li><a href="#">积分中心</a></li>
+<li><a href="#">专题</a></li>
+<li><a href="{ZL:GetNodeLinkUrl(59)/}">原生态</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<!-- shop_nav end! -->
+ 
+<div class="container commodity">
+<div class="row">
+<div class="commodity_box">
+<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 paddingr0">
+<div class="category">
+<ul class="menu1">
+<li class="menu_left">
+<div class="menu_simple_l"> 
+<i class="fa fa-angle-right"></i> 
+<span class="ico ico1"></span>
+<h4><a href="{ZL:GetNodeLinkUrl(25)/}">新鲜蔬菜</a></h4>
+<span class="recommend-cn-class">{ZL.Label id="首页商城输出主菜单名" ParentID="25" ShowNum="2" /}</span> 
+</div>
+</li>
+<li class="menu_left">
+<div class="menu_simple_l"> 
+<i class="fa fa-angle-right"></i> 
+<span class="ico ico2"></span>
+<h4><a href="{ZL:GetNodeLinkUrl(26)/}">新鲜水果</a></h4>
+<span class="recommend-cn-class"> {ZL.Label id="首页商城输出主菜单名" ParentID="26" ShowNum="3" /}</span> 
+</div>
+</li>
+<li class="menu_left">
+<div class="menu_simple_l"> 
+<i class="fa fa-angle-right"></i> 
+<span class="ico ico3"></span>
+<h4><a href="{ZL:GetNodeLinkUrl(27)/}">肉禽蛋骨</a></h4>
+<span class="recommend-cn-class"> {ZL.Label id="首页商城输出主菜单名" ParentID="27" ShowNum="3" /}</span> 
+</div>
+</li>
+<li class="menu_left">
+<div class="menu_simple_l"> 
+<i class="fa fa-angle-right"></i> 
+<span class="ico ico4"></span>
+<h4><a href="{ZL:GetNodeLinkUrl(28)/}">水产冰鲜</a></h4>
+<span class="recommend-cn-class">{ZL.Label id="首页商城输出主菜单名" ParentID="28" ShowNum="3" /}</span> 
+</div>
+</li>
+<li class="menu_left">
+<div class="menu_simple_l"> 
+<i class="fa fa-angle-right"></i> 
+<span class="ico ico5"></span>
+<h4><a href="{ZL:GetNodeLinkUrl(29)/}">粮油副食</a></h4>
+<span class="recommend-cn-class">{ZL.Label id="首页商城输出主菜单名" ParentID="29" ShowNum="2" /}</span> 
+</div>
+</li>
+<li class="menu_left">
+<div class="menu_simple_l"> 
+<i class="fa fa-angle-right"></i> 
+<span class="ico ico6"></span>
+<h4><a href="{ZL:GetNodeLinkUrl(30)/}">食品饮品</a></h4>
+<span class="recommend-cn-class">{ZL.Label id="首页商城输出主菜单名" ParentID="30" ShowNum="3" /}</span> 
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 padding0">
+<!-- Swiper -->
+<div class="swiper-container shop_swiper">
+<div class="swiper-wrapper">
+<div class="swiper-slide">
+<a href="{ZL:GetNodeLinkUrl(46)/}"><img src="{$CssDir/}images/shop_banner1.jpg" alt="稻香米"></a>
+</div>
+<div class="swiper-slide">
+<a href="{ZL:GetNodeLinkUrl(36)/}"><img src="{$CssDir/}images/shop_banner2.jpg" alt="夏橙"></a>
+</div>
+<div class="swiper-slide">
+<a href="{ZL:GetNodeLinkUrl(26)/}"><img src="{$CssDir/}images/shop_banner3.jpg" alt="鲜果配送"></a>
+</div>
+<div class="swiper-slide">
+<a href="{ZL:GetNodeLinkUrl(43)/}"><img src="{$CssDir/}images/shop_banner4.jpg" alt="基围虾"></a>
+</div>
+</div>
+<!-- Add Pagination -->
+<div class="swiper-pagination"></div>
+</div>
+
+<!-- Swiper JS -->
+</div>
+<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 padding0 hidden-xs">
+<div class="shop_ad_r">
+<a href="{ZL:GetNodeLinkUrl(59)/}"><img src="{$CssDir/}images/shop_pic1.jpg" alt="生态健康"></a>
+<hr>
+<a href="{ZL:GetShopUrl(72)/}"><img src="{$CssDir/}images/shop_pic2.jpg" alt="精选西红柿"></a>
+</div>
+</div>
+</div>
+<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 padding0 "></div>
+<div class="sub-class-box">
+<div class="col-lg-10 col-md-10 col-sm-10 col-xs-8 padding0 ">
+<div class="sub-class">
+<div class="sub-class-content">
+<div class="recommend-class"> {ZL.Label id="首页商城输出主类别名_右栏显示框" ParentID="31" ShowNum="10" /} </div>
+<dl>
+<dt>
+<h3><a id="b31" href="{ZL:GetNodeLinkUrl(31)/}">有机蔬菜</a></h3>
+</dt>
+<dd class="goods-class">{ZL.Label id="首页商城输出主菜单名" ParentID="31" ShowNum="10" /}</dd>
+</dl>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(32)/}">特色产品</a></h3>
+</dt>
+<dd class="goods-class"> {ZL.Label id="首页商城输出主菜单名" ParentID="32" ShowNum="10" /} </dd>
+</dl>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(33)/}">净配菜</a></h3>
+</dt>
+<dd class="goods-class">{ZL.Label id="首页商城输出主菜单名" ParentID="33" ShowNum="10" /}</dd>
+</dl>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(34)/}">保健蔬菜</a></h3>
+</dt>
+<dd class="goods-class">{ZL.Label id="首页商城输出主菜单名" ParentID="34" ShowNum="10" /}</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="sub-class-box">
+<div class="col-lg-10 col-md-10 col-sm-10 col-xs-8 padding0 ">
+<div class="sub-class">
+<div class="sub-class-content">
+<div class="recommend-class">{ZL.Label id="首页商城输出主类别名_右栏显示框" ParentID="35" ShowNum="10" /}</div>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(35)/}">国产水果</a></h3>
+</dt>
+<dd class="goods-class">{ZL.Label id="首页商城输出主菜单名" ParentID="35" ShowNum="10" /}</dd>
+</dl>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(36)/}">进口水果</a></h3>
+</dt>
+<dd class="goods-class">{ZL.Label id="首页商城输出主菜单名" ParentID="36" ShowNum="10" /}</dd>
+</dl>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(37)/}">礼盒</a></h3>
+</dt>
+<dd class="goods-class">{ZL.Label id="首页商城输出主菜单名" ParentID="37" ShowNum="10" /}</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="sub-class-box">
+<div class="col-lg-10 col-md-10 col-sm-10 col-xs-8 padding0 ">
+<div class="sub-class">
+<div class="sub-class-content">
+<div class="recommend-class">{ZL.Label id="首页商城输出主类别名_右栏显示框" ParentID="38" ShowNum="10" /} </div>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(38)/}">肉类</a></h3>
+</dt>
+<dd class="goods-class"> {ZL.Label id="首页商城输出主菜单名" ParentID="38" ShowNum="10" /}</dd>
+</dl>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(39)/}">活禽</a></h3>
+</dt>
+<dd class="goods-class"> {ZL.Label id="首页商城输出主菜单名" ParentID="39" ShowNum="10" /}</dd>
+</dl>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(40)/}">蛋类</a></h3>
+</dt>
+<dd class="goods-class"> {ZL.Label id="首页商城输出主菜单名" ParentID="40" ShowNum="10" /}</dd>
+</dl>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(41)/}">汤骨</a></h3>
+</dt>
+<dd class="goods-class">{ZL.Label id="首页商城输出主菜单名" ParentID="41" ShowNum="10" /}</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="sub-class-box">
+<div class="col-lg-10 col-md-10 col-sm-10 col-xs-8 padding0 ">
+<div class="sub-class">
+<div class="sub-class-content">
+<div class="recommend-class"> {ZL.Label id="首页商城输出主类别名_右栏显示框" ParentID="42" ShowNum="10" /}</div>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(42)/}">河鲜</a></h3>
+</dt>
+<dd class="goods-class"> {ZL.Label id="首页商城输出主菜单名" ParentID="42" ShowNum="10" /}</dd>
+</dl>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(43)/}">海鲜</a></h3>
+</dt>
+<dd class="goods-class"> {ZL.Label id="首页商城输出主菜单名" ParentID="43" ShowNum="10" /}</dd>
+</dl>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(44)/}">礼盒</a></h3>
+</dt>
+<dd class="goods-class">{ZL.Label id="首页商城输出主菜单名" ParentID="44" ShowNum="10" /}</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="sub-class-box">
+<div class="col-lg-10 col-md-10 col-sm-10 col-xs-8 padding0 ">
+<div class="sub-class">
+<div class="sub-class-content">
+<div class="recommend-class">{ZL.Label id="首页商城输出主类别名_右栏显示框" ParentID="45" ShowNum="10" /} </div>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(45)/}">食用油</a></h3>
+</dt>
+<dd class="goods-class">{ZL.Label id="首页商城输出主菜单名" ParentID="45" ShowNum="10" /}</dd>
+</dl>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(46)/}">大米/小米</a></h3>
+</dt>
+<dd class="goods-class">{ZL.Label id="首页商城输出主菜单名" ParentID="46" ShowNum="10" /}</dd>
+</dl>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(47)/}">豆/面制品</a></h3>
+</dt>
+<dd class="goods-class">{ZL.Label id="首页商城输出主菜单名" ParentID="47" ShowNum="10" /}</dd>
+</dl>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(48)/}">五谷杂粮</a></h3>
+</dt>
+<dd class="goods-class">{ZL.Label id="首页商城输出主菜单名" ParentID="48" ShowNum="10" /}</dd>
+</dl>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(49)/}">南北干货</a></h3>
+</dt>
+<dd class="goods-class">{ZL.Label id="首页商城输出主菜单名" ParentID="49" ShowNum="10" /}</dd>
+</dl>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(50)/}">厨房调料</a></h3>
+</dt>
+<dd class="goods-class">{ZL.Label id="首页商城输出主菜单名" ParentID="50" ShowNum="10" /}</dd>
+</dl>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(51)/}">调味酱</a></h3>
+</dt>
+<dd class="goods-class">{ZL.Label id="首页商城输出主菜单名" ParentID="51" ShowNum="10" /}</dd>
+</dl>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(52)/}">方便食品</a></h3>
+</dt>
+<dd class="goods-class">{ZL.Label id="首页商城输出主菜单名" ParentID="52" ShowNum="10" /}</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="sub-class-box">
+<div class="col-lg-10 col-md-10 col-sm-10 col-xs-8 padding0 ">
+<div class="sub-class">
+<div class="sub-class-content">
+<div class="recommend-class">{ZL.Label id="首页商城输出主类别名_右栏显示框" ParentID="55" ShowNum="10" /}</div>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(53)/}">饮料</a></h3>
+</dt>
+<dd class="goods-class">{ZL.Label id="首页商城输出主菜单名" ParentID="53" ShowNum="10" /}</dd>
+</dl>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(54)/}">酒水</a></h3>
+</dt>
+<dd class="goods-class">{ZL.Label id="首页商城输出主菜单名" ParentID="54" ShowNum="10" /} </dd>
+</dl>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(55)/}">牛奶</a></h3>
+</dt>
+<dd class="goods-class">{ZL.Label id="首页商城输出主菜单名" ParentID="55" ShowNum="10" /}</dd>
+</dl>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(56)/}">茶叶</a></h3>
+</dt>
+<dd class="goods-class">{ZL.Label id="首页商城输出主菜单名" ParentID="56" ShowNum="10" /}</dd>
+</dl>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(57)/}">休闲食品</a></h3>
+</dt>
+<dd class="goods-class">{ZL.Label id="首页商城输出主菜单名" ParentID="57" ShowNum="10" /}</dd>
+</dl>
+<dl>
+<dt>
+<h3><a href="{ZL:GetNodeLinkUrl(58)/}">进口食品</a></h3>
+</dt>
+<dd class="goods-class">{ZL.Label id="首页商城输出主菜单名" ParentID="58" ShowNum="10" /}</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- commodity end! -->
+
+<div class="container shop_ad_box">
+<div class="shop_box_ad_l hidden-xs">
+<a href="javascript:;"><img src="{$CssDir/}images/clock01.jpg" alt="限时抢购"></a>
+</div>
+<!-- Swiper -->
+<div class="swiper-container shop_box_ad_r">
+<div class="swiper-wrapper">
+<div class="swiper-slide"><a href="{ZL:GetNodeLinkUrl(26)/}"><img src="{$CssDir/}images/shop_ad1.jpg" alt="鲜果特卖"></a></div>
+<div class="swiper-slide"><a href="{ZL:GetNodeLinkUrl(50)/}"><img src="{$CssDir/}images/shop_ad2.jpg" alt="厨房调料系列"></a></div>
+<div class="swiper-slide"><a href="{ZL:GetNodeLinkUrl(107)/}"><img src="{$CssDir/}images/shop_ad3.jpg" alt="鲜活小鲫鱼"></a></div>
+<div class="swiper-slide"><a href="{ZL:GetNodeLinkUrl(91)/}"><img src="{$CssDir/}images/shop_ad4.jpg" alt="火锅涮羊肉"></a></div>
+<div class="swiper-slide"><a href="{ZL:GetNodeLinkUrl(33)/}"><img src="{$CssDir/}images/shop_ad5.jpg" alt="净配菜"></a></div>
+<div class="swiper-slide"><a href="{ZL:GetNodeLinkUrl(105)/}"><img src="{$CssDir/}images/shop_ad6.jpg" alt="小通排骨"></a></div>
+<div class="swiper-slide"><a href="{ZL:GetNodeLinkUrl(31)/}"><img src="{$CssDir/}images/shop_ad7.jpg" alt="新鲜胡萝卜"></a></div>
+<div class="swiper-slide"><a href="{ZL:GetNodeLinkUrl(113)/}"><img src="{$CssDir/}images/shop_ad8.jpg" alt="大闸蟹"></a></div>
+</div>
+</div>
+<!-- Swiper JS -->
+</div>
+<!--  shop_ad_box end! -->
+
+<div class="container shop_sale_layout">
+<div class="row">
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+<div class="shop_sale_l">
+<div class="sale_l_nav">
+<span class="active">新品上架</span><span>热卖商品</span><span>猜你喜欢</span><span>疯狂抢购</span><span>热评商品</span>
+</div>
+<ul>
+{ZL.Label id="首页输出新品上架_图文不分页" NodeID="0" ShowNum="5" /}
+</ul>
+<ul>
+{ZL.Label id="首页输出推荐商品_图文不分页" NodeID="0" ShowNum="5" /}
+</ul>
+<ul>
+{ZL.Label id="首页输出精品_图文不分页" NodeID="0" ShowNum="5" /}
+</ul>
+<ul>
+{ZL.Label id="首页按销量输出商品_图文不分页" NodeID="0" ShowNum="5" /}
+</ul>
+<ul>
+{ZL.Label id="首页按添加时间输出商品_图文不分页" NodeID="0" ShowNum="5" /}
+</ul>
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="right-sidebar">
+<div class="title">
+<h3>商城快报</h3>
+</div>
+<div class="news">
+<ul>
+<li><a target="_blank" href="#">7元现金等你来领取 </a>
+<time>(07-12)</time>
+</li>
+<li><a target="_blank" href="#">端午暂停配送通知 </a>
+<time>(05-27)</time>
+</li>
+<li><a target="_blank" href="#">2017春节放假通知 </a>
+<time>(01-21)</time>
+</li>
+<li><a target="_blank" href="#">重要 | 十一国庆长假期配 </a>
+<time>(09-30)</time>
+</li>
+</ul>
+</div>
+<div class="ntrance">
+<ul>
+<li><a rel="nofollow" href="#"><i class="i_ico01"></i>推广返利</a></li>
+<li><a rel="nofollow" href="#"><i class="i_ico02"></i>7大服务</a></li>
+<li><a rel="nofollow" href="#"><i class="i_ico03"></i>导购流程</a></li>
+<li><a rel="nofollow" href="#"><i class="i_ico04"></i>物流自提</a></li>
+<li><a rel="nofollow" href="#"><i class="i_ico05"></i>招商入驻</a></li>
+<li><a rel="nofollow" href="#"><i class="i_ico06"></i>商家管理</a></li>      
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- shop_sale_layout end! -->
+
+<div class=" container shop_floor floor1">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 paddingr0">
+<div class="left-sidebar">
+<div class="title">
+<div class="txt-type">
+<span>1F</span>
+<h2>新鲜蔬菜</h2>
+</div>
+</div>
+<div class="left-ads">
+<a href="{ZL:GetNodeLinkUrl(25)/}" target="_blank"> <img src="{$CssDir/}images/floor1_ad_l.jpg" alt="新鲜蔬菜"> </a>
+</div>
+<div class="recommend-classes">
+<h3>大家还喜欢了</h3>
+<ul>
+{ZL.Label id="指定节点下子栏目列表" ParentID="25" ShowNum="4" /}
+{ZL.Label id="指定节点下子栏目列表" ParentID="31" ShowNum="4" /}
+
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 paddingl0">
+<div class="middle-layout">
+<div class="middle_top_nav">
+<div class="goods_t active"><a href="javascript:;">商品推荐</a></div>
+<ul class="right-brand">
+<li><a href="{ZL:GetNodeLinkUrl(25)/}">更多</a></li>
+</ul>
+</div>
+<div class="tabs-panel middle-goods-list">
+<ul>
+{ZL.Label id="首页商城商品列表" NodeID="31" ShowNum="10" /}
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class=" container shop_floor floor2">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 paddingr0">
+<div class="left-sidebar">
+<div class="title">
+<div class="txt-type">
+<span>2F</span>
+<h2>新鲜水果</h2>
+</div>
+</div>
+<div class="left-ads">
+<a href="{ZL:GetNodeLinkUrl(26)/}" target="_blank"> <img src="{$CssDir/}images/floor2_ad_l.jpg" alt="新鲜水果"> </a>
+</div>
+<div class="recommend-classes">
+<h3>大家还喜欢了</h3>
+<ul>
+{ZL.Label id="指定节点下子栏目列表" ParentID="26" ShowNum="2" /}
+{ZL.Label id="指定节点下子栏目列表" ParentID="35" ShowNum="6" /}
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 paddingl0">
+<div class="middle-layout">
+<div class="middle_top_nav">
+<div class="goods_t active" ><a href="javascript:;">新鲜水果</a></div>
+<div class="goods_t"><a href="javascript:;">进口水果</a></div>
+<ul class="right-brand">
+<li><a href="{ZL:GetNodeLinkUrl(26)/}">更多</a></li>
+</ul>
+</div>
+<div class="tabs-panel middle-goods-list">
+<ul>
+{ZL.Label id="首页商城商品列表" NodeID="35" ShowNum="10" /}
+</ul>
+<ul>
+{ZL.Label id="首页商城商品列表" NodeID="36" ShowNum="10" /}
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class=" container shop_floor floor3">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 paddingr0">
+<div class="left-sidebar">
+<div class="title">
+<div class="txt-type">
+<span>3F</span>
+<h2>水产冰鲜</h2>
+</div>
+</div>
+<div class="left-ads">
+<a href="{ZL:GetNodeLinkUrl(28)/}" target="_blank"> <img src="{$CssDir/}images/floor3_ad_l.jpg" alt="水产冰鲜"> </a>
+</div>
+<div class="recommend-classes">
+<h3>大家还喜欢了</h3>
+<ul>
+{ZL.Label id="指定节点下子栏目列表" ParentID="28" ShowNum="2" /}
+{ZL.Label id="指定节点下子栏目列表" ParentID="42" ShowNum="7"/}
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 paddingl0">
+<div class="middle-layout">
+<div class="middle_top_nav">
+<div class="goods_t active"><a href="javascript:;">商品推荐</a></div>
+<ul class="right-brand">
+<li><a href="{ZL:GetNodeLinkUrl(28)/}">更多</a></li>
+</ul>
+</div>
+<div class="tabs-panel middle-goods-list">
+<ul>
+{ZL.Label id="首页商城商品列表" NodeID="43" ShowNum="10" /}
+
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class=" container shop_floor floor4">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 paddingr0">
+<div class="left-sidebar">
+<div class="title">
+<div class="txt-type">
+<span>4F</span>
+<h2>新鲜肉禽</h2>
+</div>
+</div>
+<div class="left-ads">
+<a href="{ZL:GetNodeLinkUrl(27)/}" target="_blank"> <img src="{$CssDir/}images/floor4_ad_l.jpg" alt="新鲜肉禽"> </a>
+</div>
+<div class="recommend-classes">
+<h3>大家还喜欢了</h3>
+<ul>
+{ZL.Label id="指定节点下子栏目列表" ParentID="27" ShowNum="4" /}
+{ZL.Label id="指定节点下子栏目列表" ParentID="38" ShowNum="7"/}
+{ZL.Label id="指定节点下子栏目列表" ParentID="41" ShowNum="3"/}
+
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 paddingl0">
+<div class="middle-layout">
+<div class="middle_top_nav">
+<div class="goods_t active"><a href="javascript:;">商品推荐</a></div>
+<ul class="right-brand">
+<li><a href="{ZL:GetNodeLinkUrl(27)/}">更多</a></li>
+</ul>
+</div>
+<div class="tabs-panel middle-goods-list">
+<ul>
+{ZL.Label id="首页商城商品列表" NodeID="38" ShowNum="10" /}
+
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class=" container shop_floor floor5">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 paddingr0">
+<div class="left-sidebar">
+<div class="title">
+<div class="txt-type">
+<span>5F</span>
+<h2>粮油副食</h2>
+</div>
+</div>
+<div class="left-ads">
+<a href="{ZL:GetNodeLinkUrl(29)/}"  target="_blank"> <img src="{$CssDir/}images/floor5_ad_l.jpg" alt="粮油副食"> </a>
+</div>
+<div class="recommend-classes">
+<h3>大家还喜欢了</h3>
+<ul>
+{ZL.Label id="指定节点下子栏目列表" ParentID="45" ShowNum="10" /}
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 paddingl0">
+<div class="middle-layout">
+<div class="middle_top_nav">
+<div class="goods_t active"><a href="javascript:;">商品推荐</a></div>
+<div class="goods_t"><a href="javascript:;">五谷杂粮</a></div>
+<div class="goods_t"><a href="javascript:;">南北干货</a></div>
+<ul class="right-brand">
+<li><a href="{ZL:GetNodeLinkUrl(29)/}">更多</a></li>
+</ul>
+</div>
+<div class="tabs-panel middle-goods-list">
+<ul>
+{ZL.Label id="首页商城商品列表" NodeID="45" ShowNum="10" /}
+
+</ul>
+<ul>
+{ZL.Label id="首页商城商品列表" NodeID="48" ShowNum="10" /}
+
+</ul>
+<ul>
+{ZL.Label id="首页商城商品列表" NodeID="49" ShowNum="10" /}
+
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class=" container shop_floor floor6">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 paddingr0">
+<div class="left-sidebar">
+<div class="title">
+<div class="txt-type">
+<span>6F</span>
+<h2>厨房调味</h2>
+</div>
+</div>
+<div class="left-ads">
+<a href="{ZL:GetNodeLinkUrl(50)/}" title="厨房调味" target="_blank"> <img src="{$CssDir/}images/floor6_ad_l.jpg" alt="厨房调味"> </a>
+</div>
+<div class="recommend-classes">
+<h3>大家还喜欢了</h3>
+<ul>
+{ZL.Label id="指定节点下子栏目列表" ParentID="50" ShowNum="8" /}
+
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 paddingl0">
+<div class="middle-layout">
+<div class="middle_top_nav">
+<div class="goods_t active"><a href="javascript:;">调味料</a></div>
+<div class="goods_t"><a href="javascript:;">调味酱</a></div>
+<ul class="right-brand">
+<li><a href="{ZL:GetNodeLinkUrl(50)/}">更多</a></li>
+</ul>
+</div>
+<div class="tabs-panel middle-goods-list">
+<ul>
+{ZL.Label id="首页商城商品列表" NodeID="50" ShowNum="10" /}
+
+</ul>
+<ul>
+{ZL.Label id="首页商城商品列表" NodeID="51" ShowNum="10" /}
+
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class=" container shop_floor floor3">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 paddingr0">
+<div class="left-sidebar">
+<div class="title">
+<div class="txt-type">
+<span>7F</span>
+<h2>饮品饮料</h2>
+</div>
+</div>
+<div class="left-ads">
+<a href="{ZL:GetNodeLinkUrl(30)/}" target="_blank"> <img src="{$CssDir/}images/floor7_ad_l.jpg" alt="饮品饮料"> </a>
+</div>
+<div class="recommend-classes">
+<h3>大家还喜欢了</h3>
+<ul>
+{ZL.Label id="指定节点下子栏目列表" ParentID="30" ShowNum="8" /}
+{ZL.Label id="指定节点下子栏目列表" ParentID="50" ShowNum="4" /}
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 paddingl0">
+<div class="middle-layout">
+<div class="middle_top_nav">
+<div class="goods_t active"><a href="javascript:;">商品推荐</a></div>
+<ul class="right-brand">
+<li><a href="{ZL:GetNodeLinkUrl(30)/}">更多</a></li>
+</ul>
+</div>
+<div class="tabs-panel middle-goods-list">
+<ul>
+{ZL.Label id="首页商城商品列表" NodeID="53" ShowNum="10" /}
+
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class=" container shop_floor floor8">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 paddingr0">
+<div class="left-sidebar">
+<div class="title">
+<div class="txt-type">
+<span>8F</span>
+<h2>原生态食品</h2>
+</div>
+</div>
+<div class="left-ads">
+<a href="{ZL:GetNodeLinkUrl(59)/}" title="饮品饮料" target="_blank"> <img src="{$CssDir/}images/floor8_ad_l.jpg" alt="饮品饮料"> </a>
+</div>
+<div class="recommend-classes">
+<h3>大家还喜欢了</h3>
+<ul>
+{ZL.Label id="指定节点下子栏目列表" ParentID="59" ShowNum="4" /}
+{ZL.Label id="指定节点下子栏目列表" ParentID="61" ShowNum="6" /}
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 paddingl0">
+<div class="middle-layout">
+<div class="middle_top_nav">
+<div class="goods_t active"><a href="javascript:;">商品推荐</a></div>
+<ul class="right-brand">
+<li><a href="{ZL:GetNodeLinkUrl(59)/}">更多</a></li>
+</ul>
+</div>
+<div class="tabs-panel middle-goods-list">
+<ul>
+{ZL.Label id="首页商城商品列表" NodeID="62" ShowNum="10" /}
+
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+ <!-- shop_floor end! -->
+ 
+ 
+{ZL.Label id="全站底部"/}
+</body>
+</html>
+
+<script>
+
+//会员ajax登录状态需要结合JS/Controls/B_User.js引用同步生效
+var buser = new B_User();
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data)
+		$(".user_login").hide();
+		$(".user_reg").hide();
+		$(".user_cen").html("欢迎您,"+data.UserName+"!").css("color","red");
+		$(".user_cen").show();
+		$(".user_logout").show();
+	}
+});
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+};
+
+//生鲜商城导航
+var width=$(".category").width();
+$(".all_title a").css("width",width);
+$(".sub-class-box").css({left:width+14});  
+$(".sub-class-box").hide();
+$(".menu_left").mouseover( function(){
+    var index=$(this).index();
+    $(".sub-class-box").hide().eq(index).stop().show();
+});
+$(".sub-class-box").mouseleave(function(){
+    $(".sub-class-box").hide();
+ });
+$(".commodity").mouseleave(function(){
+    $(".sub-class-box").hide();
+ });
+ 
+ window.onresize = function () {
+     var width=$(".category").width();
+    $(".all_title a").css("width",width);
+    $(".sub-class-box").css({left:width+14});  
+  }
+ 
+ //生鲜商城广告轮播图
+ var swiper = new Swiper('.shop_swiper', {
+    pagination: '.swiper-pagination',
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    paginationClickable: true,
+    spaceBetween: 30,
+    centeredSlides: true,
+    autoplay: 2500,
+    autoplayDisableOnInteraction: false,
+    keyboardControl: true,
+    loop: true
+});
+
+
+var swiper = new Swiper('.shop_box_ad_r', {
+    pagination: '.swiper-pagination',
+    slidesPerView:4,
+    paginationClickable: true,
+    spaceBetween: 10,
+    loop: true,
+     autoplay: 3000
+});
+
+//楼层水果切换
+
+$(".floor2 .middle-goods-list ul").hide().eq(0).show();
+$(".floor5 .middle-goods-list ul").hide().eq(0).show();
+$(".floor6 .middle-goods-list ul").hide().eq(0).show();
+$(".floor2 .goods_t").mouseenter(function(){
+    var x=$(this).index();
+    $(this).addClass("active").siblings().removeClass("active");
+    $(".floor2 .middle-goods-list ul").hide().eq(x).show();
+        
+});
+$(".floor5 .goods_t").mouseenter(function(){
+    var x=$(this).index();
+    $(this).addClass("active").siblings().removeClass("active");
+    $(".floor5 .middle-goods-list ul").hide().eq(x).show();
+        
+});
+$(".floor6 .goods_t").mouseenter(function(){
+    var x=$(this).index();
+    $(this).addClass("active").siblings().removeClass("active");
+    $(".floor6 .middle-goods-list ul").hide().eq(x).show();
+        
+});
+
+//新品上架
+$(".shop_sale_l ul").hide().eq(0).show();
+$(".sale_l_nav span").mouseover(function(){
+    var x=$(this).index();
+     $(this).addClass("active").siblings().removeClass("active");
+     $(".shop_sale_l ul").hide().eq(x).stop().show();
+});
+
+//微信二维码
+$(".home_weixin img").hide();
+$(".home_weixin a").mouseover(function(){
+    $(".home_weixin img").show();
+}).mouseout(function(){
+    $(".home_weixin img").hide();
+});
+</script>

@@ -1,0 +1,31 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>316</LabelID>
+    <LabelName>输出指定节点友情链接下拉选项</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>七件事</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,0,1,节点ID</LabelParam>
+    <LabelTable>ZL_CommonModel LEFT JOIN ZL_C_FriendSite ON ZL_CommonModel.ItemID=ZL_C_FriendSite.ID</LabelTable>
+    <LabelField>ZL_CommonModel.Title,ZL_C_FriendSite.url</LabelField>
+    <LabelWhere>(NodeID=@NodeID or FirstNodeID=@NodeID or NodeID in (select NodeID from ZL_Node where ParentID=@NodeID)) And Status=99</LabelWhere>
+    <LabelOrder />
+    <LabelContent>{Repeate}
+&lt;li&gt;&lt;a href="{Field="url"/}" target="_blank"&gt;{Field="Title"/}&lt;/a&gt;&lt;/li&gt;
+
+  {/Repeate}</LabelContent>
+    <LabelCount>10</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_CommonModel","tb_s":"ZL_C_FriendSite"}</DataSourceType>
+    <ConnectString />
+  </Table>
+</NewDataSet>

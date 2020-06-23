@@ -1,0 +1,92 @@
+﻿{ZL.Source id="文章模型数据源标签"/}<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="文章模型数据源标签" FD="Title" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="文章模型数据源标签" FD="Tagkey" page="0"/}" />
+<meta name="Description" content="{SField sid="文章模型数据源标签" FD="Title" page="0"/}">
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js" type="text/javascript"></script>
+<script src="/JS/Controls/B_User.js"></script>
+</head>
+<body>
+{ZL.Label id="商城头部"/}
+<div class="container mySites" style="margin-top:0;">
+<ul class="breadcrumb">
+<li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+{ZL.Label id="输出多级节点导航_V4" NodeID="{SField sid="文章模型数据源标签" FD="NodeID" page="0"/}" ShowNum="30" /}
+</ul>
+</div>
+<!-- mySites end! -->
+
+<div class="container foot_article">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="foot_article_l">
+<div class="article_box">
+<div class="foot_article_t">文章分类</div>
+<ul></ul>
+</div>
+</div>
+<div class="foot_article_l foot_article_new">
+<div class="article_box">
+<div class="foot_article_t">最新文章</div>
+<ul>
+{ZL.Label id="内容页输出文章标题" TitllNum="20" NodeID="{SField sid="文章模型数据源标签" FD="NodeID" page="0"/}" /}
+</ul>
+</div>
+</div>
+</div>
+
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+<div class="foot_article_c">
+<div class="foot_article_c_t">
+<h3>{SField sid="文章模型数据源标签" FD="Title" page="0"/}</h3>
+<span id="CreateTime">{ZL:FormatDate({SField sid="文章模型数据源标签" FD="CreateTime" page="0"/},yyyy-MM-dd)/}</span></div>
+<div class="myContent">{SField sid="文章模型数据源标签" FD="content" page="{SField sid="文章模型数据源标签" FD="K_pages" page="0"/}"/}</div>
+<div id="begin">
+<span id="asc">上一篇文章：{ZL.Label id="上一篇文章" NodeID="{SField sid="文章模型数据源标签" FD="NodeID" page="0"/}" /}</span>
+<span id="desc" class="pull-right">下一篇文章：{ZL.Label id="下一篇文章" NodeID="{SField sid="文章模型数据源标签" FD="NodeID" page="0"/}" /}</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{ZL.Label id="全站底部"/}
+</body>
+</html>
+
+<script>
+//生鲜商城导航
+var width=$(".category").width();
+$(".all_title a").css("width",width);
+$(".sub-class-box").css({left:width+14});  
+$(".sub-class-box").hide();
+$(".menu_left").mouseover( function(){
+    var index=$(this).index();
+    $(".sub-class-box").hide().eq(index).stop().show();
+});
+$(".sub-class-box").mouseleave(function(){
+    $(".sub-class-box").hide();
+ });
+$(".commodity").mouseleave(function(){
+    $(".sub-class-box").hide();
+ });
+ 
+ window.onresize = function () {
+     var width=$(".category").width();
+    $(".all_title a").css("width",width);
+    $(".sub-class-box").css({left:width+14});  
+  }
+  
+$(".category").hide();
+$(".all_title").mouseover(function(){
+    $(".category").show();  
+});
+$(".commodity").mouseleave(function(){
+    $(".category").hide();
+ });
+
+</script>

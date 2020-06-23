@@ -1,0 +1,66 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>337</LabelID>
+    <LabelName>微信底部</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>静态标签</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;div class="weui-tabbar wei-footer"&gt;
+&lt;a href="/Class_2/NodeNews.aspx" class="weui-tabbar__item" id="foot_home"&gt;
+&lt;i class="fa fa-home  weui-tabbar__icon "&gt;&lt;/i&gt;
+&lt;p class="weui-tabbar__label "&gt;首页&lt;/p&gt;
+&lt;/a&gt;
+&lt;a href="/Class_233/Default.aspx" class="weui-tabbar__item" id="foot_jie"&gt;
+&lt;i class=" fa fa-hourglass-half   weui-tabbar__icon"&gt;&lt;/i&gt;
+&lt;p class="weui-tabbar__label"&gt;热卖&lt;/p&gt;
+&lt;/a&gt;
+  
+&lt;a href="/Class_1/Default.aspx" class="weui-tabbar__item" id="wei-news"&gt;
+&lt;i class="fa fa-bandcamp weui-tabbar__icon"&gt;&lt;/i&gt;
+&lt;p class="weui-tabbar__label"&gt;发现&lt;/p&gt;
+  &lt;/a&gt;
+
+&lt;a href="/Class_2/NodePage.aspx" class="weui-tabbar__item" id="foot_quan"&gt;
+&lt;i class="fa fa-life-ring  weui-tabbar__icon"&gt;&lt;/i&gt;
+&lt;p class="weui-tabbar__label"&gt;分类&lt;/p&gt;
+&lt;/a&gt;
+
+&lt;a href="/User" class="weui-tabbar__item" id="foot_user"&gt;
+&lt;i class="fa fa-user  weui-tabbar__icon"&gt;&lt;/i&gt;
+&lt;p class="weui-tabbar__label"&gt;我&lt;/p&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;section  class="visible-xs"&gt;
+  &lt;div class="mask_menu" style="display:none;"&gt;&lt;/div&gt;
+  &lt;div class="menu" id="menufloat"&gt;&lt;i class="fa fa-th-large icon-menu"&gt;&lt;/i&gt;&lt;/div&gt;
+  &lt;div class="menu-c" id="menufloat-c" style="display:none;"&gt;
+    &lt;div class="menu-c-out"&gt;
+      &lt;div class="menu-c-inner"&gt; &lt;a class="a-home" href="/" title="首页"&gt;&lt;/a&gt;&lt;a class="a-tel" href="tel:400-027-0887" title="联系店主"&gt;&lt;/a&gt;  &lt;a id="serviceUrl" class="a-server" href="{$CssDir/}images/serverQD.JPG" title="客服"&gt;&lt;/a&gt; &lt;a class="a-member" href="/Class_1/Default.aspx"  title="发现"&gt;&lt;/a&gt; &lt;a class="a-search" href="/PayOnline/SelectPayPlat.aspx" title="充值"&gt;&lt;/a&gt; &lt;a class="a-cart" href="/User/Order/OrderList" title="购物车"&gt;&lt;/a&gt; &lt;a class="a-collect" href="/Cart/cart.aspx?ProClass=1"  id="collect-link" title="订单"&gt;&lt;/a&gt; &lt;/div&gt;
+	  &lt;!--收藏可以改为留言，指向gesut--&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+&lt;!--menu float end--&gt; </LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

@@ -1,0 +1,66 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>322</LabelID>
+    <LabelName>栏目列表商品列表_分页</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>七件事</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,0,1,节点ID|ShowNum,12,1,显示数|Title,,1,商品名</LabelParam>
+    <LabelTable>ZL_Commodities</LabelTable>
+    <LabelField>LinPrice,Proname,Thumbnails,Proinfo,ID,NodeID,ShiPrice,Stock</LabelField>
+    <LabelWhere>(NodeID=@NodeID or NodeID in (select NodeID from zl_Node where ParentID=@NodeID) or NodeID in (select NodeID from ZL_Node where ParentID in (select NodeID from zl_Node where ParentID=@NodeID))) And Sales=1 And istrue=1 And Recycler=0 </LabelWhere>
+    <LabelOrder>AddTime DESC</LabelOrder>
+    <LabelContent>&lt;ul class="selling_list_c"&gt;
+
+{Repeate}
+
+
+&lt;li class="item"&gt;
+&lt;div class="selling_goods_list"&gt;
+&lt;a href="{ZL:GetShopUrl({Field="ID"/})/}" class="selling_goods_pic"&gt;&lt;img src="{ZL:GetPicUrl({Field="Thumbnails"/})/}"  alt="{Field="Proname"/}" onerror="javascript:this.src='/UploadFiles/nopic.gif'"/&gt;&lt;/a&gt;
+&lt;div class="selling_goods_info"&gt;
+&lt;div class="selling_goods_name"&gt;&lt;a href="{ZL:GetShopUrl({Field="ID"/})/}"&gt;{Field="Proname"/}&lt;em&gt;&lt;/em&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class="selling_goods_price"&gt;
+&lt;em&gt;¥{ZL:GetMoney({Field="LinPrice"/},2,1)/}&lt;/em&gt; &lt;span&gt;¥{ZL:GetMoney({Field="ShiPrice"/},2,1)/}&lt;/span&gt;
+&lt;div class="sell-stat"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="javascript:;" class="status"&gt;6&lt;/a&gt;
+&lt;p&gt;{Field="Stock"/}&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;0&lt;/a&gt;
+&lt;p&gt;用户评论&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="add-cart"&gt;
+&lt;a href="{ZL:GetShopUrl({Field="ID"/})/}"&gt;&lt;i class="icon-shopping-cart"&gt;&lt;/i&gt;立即购买&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+
+{/Repeate}
+  &lt;/ul&gt;
+
+
+&lt;div class="clearfix"&gt;&lt;/div&gt;
+
+{ZL.Page id="响应式列表分页v4"/}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_Commodities","tb_s":""}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

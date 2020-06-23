@@ -1,0 +1,70 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>317</LabelID>
+    <LabelName>全站头部</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>静态标签</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;div class="home_nav" id="home_nav"&gt;
+&lt;div class="container"&gt;
+&lt;nav class="navbar navbar-default"&gt;
+&lt;div class="container"&gt;
+&lt;!-- Brand and toggle get grouped for better mobile display --&gt;
+&lt;div class="navbar-header"&gt;
+&lt;button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"&gt;
+&lt;span class="sr-only"&gt;Toggle navigation&lt;/span&gt;
+&lt;span class="icon-bar"&gt;&lt;/span&gt;
+&lt;span class="icon-bar"&gt;&lt;/span&gt;
+&lt;span class="icon-bar"&gt;&lt;/span&gt;
+&lt;/button&gt;
+&lt;a class="navbar-brand hidden-xs" href="/"&gt;&lt;img src="{$CssDir/}images/logo_w.svg" alt="七件事"&gt;&lt;/a&gt;
+&lt;a class="navbar-brand visible-xs" href="/Class_2/NodeNews.aspx"&gt;&lt;img src="{$CssDir/}images/logo_w.svg" alt="七件事"&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;!-- Collect the nav links, forms, and other content for toggling --&gt;
+&lt;div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"&gt;
+&lt;ul class="nav navbar-nav home_top_nav"&gt;
+&lt;li &gt;&lt;a href="/"&gt;首页&lt;/a&gt;&lt;/li&gt;
+&lt;li id="#nid2"&gt;&lt;a href="{ZL:GetNodeLinkUrl(2)/}"&gt;生鲜商城&lt;/a&gt;&lt;/li&gt;
+&lt;li id="#gid16"&gt;&lt;a href="{ZL:GetNodeLinkUrl(3)/}"&gt;关于七件事&lt;/a&gt;&lt;/li&gt;
+&lt;li id="#nid4"&gt;&lt;a href="{ZL:GetInfoUrl(18)/}"&gt;成为合伙人&lt;/a&gt;&lt;/li&gt;
+&lt;li id="#nid3"&gt;&lt;a href="{ZL:GetInfoUrl(15)/}"&gt;联系我们&lt;/a&gt;&lt;/li&gt;
+&lt;li class="hidden-xs"&gt;&lt;a href="javascript:;" onClick="isSearch();"&gt;&lt;i class="fa fa-search"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li class="home_weixin hidden-xs nav_icon"&gt;&lt;a href="javascript:;"&gt;&lt;i class="fa fa-weixin"&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;div class="qrcode"&gt;&lt;img src="{$CssDir/}images/QRcode.jpg" alt="微信二维码"&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul class="nav navbar-nav navbar-right home_search hidden-xs"&gt;
+&lt;form class="navbar-form navbar-left" role="search" action="/Search/SearchList" target="_blank"&gt;
+&lt;i class="fa fa-search"&gt;&lt;/i&gt;
+&lt;input type="text" class="form-control" placeholder="输入关键字，回车查询" name="keyword" /&gt;
+&lt;a onClick="isClose();"&gt;&lt;i class="fa fa-close" style="color:#fff;"&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;/form&gt;
+&lt;/ul&gt;
+&lt;/div&gt;&lt;!-- /.navbar-collapse --&gt;
+&lt;/div&gt;&lt;!-- /.container-fluid --&gt;
+&lt;/nav&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- home_nav end! --&gt;</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

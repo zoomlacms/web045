@@ -1,0 +1,134 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/JS/Controls/B_User.js"></script>
+<link rel="stylesheet" href="/dist/css/weui.min.css" />
+<link rel="stylesheet" href="/dist/css/swiper.min.css">
+<script src="/dist/js/swiper.min.js"></script>
+<style>
+body { background:#f3f3f3;}
+.wei-footer { position:fixed;}
+.orderlist { font-family:"STHeiti","Microsoft YaHei","黑体","arial";}
+.orderlist .order-item { clear:both; background:#fff; margin-top:15px; border-bottom:1px solid #e3e5e9;}
+.orderlist .order-item .message{ display:block; margin:0.5em; float:right;}
+.orderlist .gray9{color:#999;}
+.orderlist .tips_div { padding-top:10px; padding-bottom:10px; padding-left:15px; padding-right:15px; border-top:1px solid #e3e5e9; border-bottom:1px solid #e3e5e9;}
+</style>
+</head> 
+<body>
+{ZL.Label id="全站头部"/}
+
+<div class="container orderlist">
+{ZL.Label id="官方会员_订单信息_分页" NodeID="2" ShowNum="20" /}
+</div>
+
+{ZL.Label id="微信底部"/}
+</body>
+</html>
+<script>
+//手机下右侧导航菜单效果
+$(function () {
+    $('button.navbar-toggle').click(function () {
+        $('body').toggleClass('out');
+        $('nav.navbar-fixed-top').toggleClass('out');
+        if ($('body').hasClass('out')) {
+            $(this).focus();
+        }
+        else {
+            $(this).blur();
+        }
+    });
+});
+$(document).click(function (e) {
+    if (!$(e.target).closest('.navbar-collapse, button.navbar-toggle').length && $('body').hasClass('out')) {
+        e.preventDefault();
+        $('button.navbar-toggle').trigger('click');
+    }
+}).keyup(function (e) {
+    if (e.keyCode == 27 && $('body').hasClass('out')) {
+        $('button.navbar-toggle').trigger('click');
+    }
+});
+$(function(){
+	var $searchBar = $('#searchBar'),
+		$searchText = $('#searchText'),
+		$searchInput = $('#searchInput'),
+		$searchClear = $('#searchClear'),
+		$searchCancel = $('#searchCancel');
+
+	function hideSearchResult(){
+		$searchInput.val('');
+	}
+	function cancelSearch(){
+		hideSearchResult();
+		$searchBar.removeClass('weui-search-bar_focusing');
+		$searchText.show();
+	}
+
+	$searchText.on('click', function(){
+		$searchBar.addClass('weui-search-bar_focusing');
+		$searchInput.focus();
+	});
+	$searchInput
+		.on('blur', function () {
+			if(!this.value.length) cancelSearch();
+		})
+	;
+	$searchClear.on('click', function(){
+		hideSearchResult();
+		$searchInput.focus();
+	});
+	$searchCancel.on('click', function(){
+		cancelSearch();
+		$searchInput.blur();
+	});
+});
+
+//微信弹出菜单效果
+$(function(){
+	//menu float
+	var menufloatclicknumber=0;
+	function menufloatin(){
+		$(".menu-c").removeClass("out");
+		$("#menufloat").addClass("show")
+		$(".mask_menu").fadeIn();
+		$("#menufloat-c").show();
+		$(".menu-c-inner").removeClass("outer");
+		$(".menu-c-inner").addClass("in")
+		$(".menu-c-inner a").show();
+		menufloatclicknumber=1;
+	}
+	function menufloatout(){
+		$("#menufloat").removeClass("show")
+		$(".mask_menu").fadeOut();
+		$(".menu-c-inner").removeClass("in")
+		$(".menu-c-inner").addClass("outer")
+		$(".menu-c-inner a").hide();
+		$(".menu-c").addClass("out");
+		menufloatclicknumber=0;		
+	}
+	$("#menufloat").click(function(){
+		if(menufloatclicknumber==0){ menufloatin(); }
+		else { menufloatout();}			 	
+	})
+	$(".mask_menu").click(function(){
+		menufloatout(); 
+	})
+});
+
+
+//微信二维码
+$(".home_weixin img").hide();
+$(".home_weixin a").mouseover(function(){
+    $(".home_weixin img").show();
+}).mouseout(function(){
+    $(".home_weixin img").hide();
+});
+
+</script>

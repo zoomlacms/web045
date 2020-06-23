@@ -1,0 +1,119 @@
+{ZL.Source id="节点栏目信息数据源"/}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>分销中心</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<link rel="stylesheet" href="/dist/css/weui.min.css" />
+<script>
+$.post("/API/UserCheck.ashx?action=HasLogged", "", function (data) {
+	if (!data || data == "-1") {
+		location = "/wxpromo.aspx?r="+window.location.href;
+	}
+});
+</script>
+<style>
+.wei-footer { position:fixed;}
+</style>
+</head>
+<body>
+<div class="container padding0_xs">
+<div class="user_top">
+<div class="user_top_t"><a href="/User/Info/Index"><img src="{ZL.Label id="获取当前会员头像" /}" alt="{ZL.Label id="获取当前用户真实姓名" /}" onerror="shownoface(this);" /></a></div>
+<div class="user_top_p">
+会员名称：{ZL.Label id="获取当前用户真实姓名" /}<br>
+会员组：{ZL.Label id="获取当前用户会员组" /}<br>
+余额：{ZL.Label id="获取当前用户余额" /}<a href="/user/Info/ConsumeDetail?SType=1" title="点击查看资金明细">0</a>
+<span>积分：{ZL.Label id="获取当前用户积分" /}</span>
+</div>
+</div>
+</div>
+
+
+<div class="container">
+<div class="fenxiao_top">
+<i class="fa fa-users"></i> 我的下级
+</div>
+
+<div class="fenxiao_all">
+<table class="table table-bordered">
+<tr>
+<td>级数</td>
+<td>消费金额</td>
+<td>成员数（人）</td>
+</tr>
+<tr>
+<td>一级</td>
+<td style="padding:0;">
+<a href="{ZL:GetLastinfo(232)/}"><span><i class="fa fa-rmb"></i> {ZL.Label id="获取当前用户一级会员消费总金额" /}</span><br/>查看明细</a>
+</td>
+<td style="padding:0;">
+<a href="{ZL:GetLastinfo(232)/}">
+<span>{ZL.Label id="获取当前用户一级会员总数" /}</span><br/>
+查看成员</a>
+</td>
+</tr>
+<tr>
+<td>二级</td>
+<td style="padding:0;">
+<a href="{ZL:GetHotinfo(232)/}"><span><i class="fa fa-rmb"></i> {ZL.Label id="获取当前用户二级会员消费总金额" /}</span><br/>查看明细</a>
+</td>
+<td style="padding:0;">
+<a href="{ZL:GetHotinfo(232)/}"><span>{ZL.Label id="获取当前用户二级会员总数" /}</span><br/>查看成员</a>
+</td>
+</tr>
+<tr>
+<td>三级</td>
+<td style="padding:0;">
+<a href="{ZL:GetProposeinfo(232)/}"><span><i class="fa fa-rmb"></i> {ZL.Label id="获取当前用户三级会员消费总金额" /}</span><br/>查看明细</a>
+</td>
+<td style="padding:0;">
+<a href="{ZL:GetProposeinfo(232)/}"><span>{ZL.Label id="获取当前用户三级会员总数" /}</span><br/>查看成员</a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+{ZL.Label id="微信底部"/}
+</body>
+</html>
+<script>
+//微信弹出菜单效果
+$(function(){
+	//menu float
+	var menufloatclicknumber=0;
+	function menufloatin(){
+		$(".menu-c").removeClass("out");
+		$("#menufloat").addClass("show")
+		$(".mask_menu").fadeIn();
+		$("#menufloat-c").show();
+		$(".menu-c-inner").removeClass("outer");
+		$(".menu-c-inner").addClass("in")
+		$(".menu-c-inner a").show();
+		menufloatclicknumber=1;
+	}
+	function menufloatout(){
+		$("#menufloat").removeClass("show")
+		$(".mask_menu").fadeOut();
+		$(".menu-c-inner").removeClass("in")
+		$(".menu-c-inner").addClass("outer")
+		$(".menu-c-inner a").hide();
+		$(".menu-c").addClass("out");
+		menufloatclicknumber=0;		
+	}
+	$("#menufloat").click(function(){
+		if(menufloatclicknumber==0){ menufloatin(); }
+		else { menufloatout();}			 	
+	})
+	$(".mask_menu").click(function(){
+		menufloatout(); 
+	})
+});
+$("#foot_user").addClass("weui-bar__item_on");
+</script>
